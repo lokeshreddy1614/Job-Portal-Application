@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "a6093f30-a513-4b8a-a9ca-0b65c2f24b28",
+		"name": "Job Portal Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40567465"
+	},
+	"item": [
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "updateUserRole",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"3xbluemoon@gmail.com\",\r\n    \"newRole\": \"User\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/admin/update-role"
+					},
+					"response": []
+				},
+				{
+					"name": "analytics",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/admin/analytics"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Routes",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Blue\",\r\n    \"email\": \"3xbluemoon@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jonasnavin@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5000/api/auth/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "resetPasswordRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"3xbluemoon@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/auth/reset-password-request"
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"d4fdd1c8e76fffb49cdf268cd04d28ecd543e647\",\r\n    \"newPassword\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/auth/reset-password"
+					},
+					"response": []
+				},
+				{
+					"name": "verifyEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/verify-email?token=d79ee72ec7e6311a23604fd12090f83346882773",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"verify-email"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "d79ee72ec7e6311a23604fd12090f83346882773"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Routes",
+			"item": [
+				{
+					"name": "postApplications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MxYTYyZGMzZTQwZDlkZDJjZDkwYWYiLCJyb2xlIjoiVXNlciIsImlhdCI6MTc0MDc1NDc3NiwiZXhwIjoxNzQxMzU5NTc2fQ.W-SrBCA7wPstcyEDFyYds-s_ePYL-ZCvrSkc9nYLkgQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5000/api/applications/67c1c7deb512c329bdc6551c/apply"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllApplications",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/applications/"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MxYTVlMWMzZTQwZDlkZDJjZDkwYTUiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDA3NTU4MjEsImV4cCI6MTc0MTM2MDYyMX0.ZZ05MRmuzh_NkyyzymOPKMeu6_7toJbioXRmii7LWUo"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobId\": \"67cc64b6e31484eae2aebdb3\",\r\n    \"userId\": \"67cc497af66f88a47f6e5e10\",\r\n    \"newStatus\": \"Interview Scheduled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/applications/update"
+					},
+					"response": []
+				},
+				{
+					"name": "applyForJob",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5000/api/applications/67cc64b6e31484eae2aebdb3/apply"
+					},
+					"response": []
+				},
+				{
+					"name": "getApplication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/applications/user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Routes",
+			"item": [
+				{
+					"name": "getAllJobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/jobs"
+					},
+					"response": []
+				},
+				{
+					"name": "getJobById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/jobs/67cc64b6e31484eae2aebdb3"
+					},
+					"response": []
+				},
+				{
+					"name": "addJob",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Developer\",\r\n    \"description\": [\r\n        \"Develop high-quality web applications using modern frontend technologies such as React.js, Next.js, Javascript, and Typescript.\",\r\n        \"Collaborate with cross-functional teams including designers and backend developers to build seamless user experiences.\",\r\n        \"Write clean, efficient, and maintainable code while following best practices in frontend development.\"\r\n    ],\r\n    \"qualifications\": [\r\n        \"Bachelor's degree in Computer Science or a related field.\",\r\n        \"Freshers or candidates with internship experience are encouraged to apply.\",\r\n        \"Solid understanding of frontend technologies including HTML5, CSS3, and JavaScript.\"\r\n    ],\r\n    \"location\": \"Galiveedu\",\r\n    \"experience\": \"0-10\",\r\n    \"jobType\": \"Full-time\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/jobs/add"
+					},
+					"response": []
+				},
+				{
+					"name": "updateJob",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Developer\",\r\n    \"description\": [\r\n        \"Collaborate with cross-functional teams including designers and backend developers to build seamless user experiences.\",\r\n        \"Write clean, efficient, and maintainable code while following best practices in frontend development.\"\r\n    ],\r\n    \"qualifications\": [\r\n        \"Bachelor's degree in Computer Science or a related field.\",\r\n        \"Freshers or candidates with internship experience are encouraged to apply.\",\r\n        \"Solid understanding of frontend technologies including HTML5, CSS3, and JavaScript.\"\r\n    ],\r\n    \"location\": \"Galiveedu\",\r\n    \"experience\": \"0-10\",\r\n    \"jobType\": \"Full-time\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/jobs/update/67cc64b6e31484eae2aebdb3"
+					},
+					"response": []
+				},
+				{
+					"name": "removeJob",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/jobs/remove/67c1c7eeb512c329bdc65524"
+					},
+					"response": []
+				}
+			],
+			"description": "**API**\n\nGET http://localhost:5000/api/jobs\n\nGET http://localhost:5000/api/jobs/:jobId\n\nPOST http://localhost:5000/api/jobs/add\n\nPUT http://localhost:5000/api/jobs/update/:jobId\n\nDELETE http://localhost:5000/api/jobs/:jobId"
+		},
+		{
+			"name": "Profile Routes",
+			"item": [
+				{
+					"name": "getAllProfiles",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/profiles"
+					},
+					"response": []
+				},
+				{
+					"name": "addProfile",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skills\": [\"javascript\"],\r\n    \"experience\": \"2\",\r\n    \"education\": \"B.E - ECE\",\r\n    \"location\": \"Bangalore, India\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/profiles/add"
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MxYTYyZGMzZTQwZDlkZDJjZDkwYWYiLCJyb2xlIjoiVXNlciIsImlhdCI6MTc0MDc1MTEzOSwiZXhwIjoxNzQxMzU1OTM5fQ.j1s6IzuCUZAO51obgHv9DJht7uJea2R1Ra6Zy8pQEz8"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skills\": [\"javascript\", \"python\"],\r\n    \"experience\": \"2.5\",\r\n    \"education\": \"B.E - ECE\",\r\n    \"location\": \"Bangalore, India\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/profiles/update"
+					},
+					"response": []
+				},
+				{
+					"name": "getProfileByUserId",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/profiles/67cc497af66f88a47f6e5e10"
+					},
+					"response": []
+				},
+				{
+					"name": "uploadResume",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resume",
+									"type": "file",
+									"src": "/C:/Users/Jonas/Downloads/jonas_navin-resume.pdf"
+								}
+							]
+						},
+						"url": "http://localhost:5000/api/profiles/upload-resume"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

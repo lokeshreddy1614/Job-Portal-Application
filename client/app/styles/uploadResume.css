@@ -1,0 +1,16 @@
+/* Tailwind Scrollbar Classes Used */
+.scrollbar-thin {
+    scrollbar-width: thin; /* Makes scrollbar thinner */
+}
+
+.scrollbar-thumb-gray-600 {
+    scrollbar-color: #4b5563 #d1d5db; /* Thumb (dark gray) & Track (light gray) */
+}
+
+.scrollbar-track-gray-300 {
+    background-color: #d1d5db; /* Light gray track */
+}
+
+.scrollbar-thumb-rounded {
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
