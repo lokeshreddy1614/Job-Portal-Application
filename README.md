@@ -87,4 +87,4 @@ Choose your Vercel project (job-portal-application-vercel)
 Click Connect
 ![integration](https://github.com/user-attachments/assets/e4c88cdb-c665-426e-9293-20b64f89a725)
 
- MongoDB Atlas is now fully integrated with Vercel! 🎉
+ MongoDB Atlas is now fully integrated with Vercel! 
